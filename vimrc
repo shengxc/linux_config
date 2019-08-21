@@ -52,6 +52,11 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
 
+"----------------
+" Code format
+"----------------
+Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
+
 "-------------
 " Other Utils
 "-------------
@@ -88,7 +93,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'jnwhiteh/vim-golang'
 
 "------- FPs ------
-Bundle 'kien/rainbow_parentheses.vim'
+" Bundle 'kien/rainbow_parentheses.vim'
 " Bundle 'wlangstroth/vim-racket'
 " Bundle 'vim-scripts/VimClojure'
 " Bundle 'rosstimson/scala-vim-support'
@@ -198,30 +203,30 @@ let g:html_indent_style1 = "inc"
 " Plugin settings
 "-----------------
 " rainbow parentheses for Lisp and variants
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-"autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" let g:rbpt_colorpairs = [
+"     \ ['brown',       'RoyalBlue3'],
+"     \ ['Darkblue',    'SeaGreen3'],
+"     \ ['darkgray',    'DarkOrchid3'],
+"     \ ['darkgreen',   'firebrick3'],
+"     \ ['darkcyan',    'RoyalBlue3'],
+"     \ ['darkred',     'SeaGreen3'],
+"     \ ['darkmagenta', 'DarkOrchid3'],
+"     \ ['brown',       'firebrick3'],
+"     \ ['gray',        'RoyalBlue3'],
+"     \ ['black',       'SeaGreen3'],
+"     \ ['darkmagenta', 'DarkOrchid3'],
+"     \ ['Darkblue',    'firebrick3'],
+"     \ ['darkgreen',   'RoyalBlue3'],
+"     \ ['darkcyan',    'SeaGreen3'],
+"     \ ['darkred',     'DarkOrchid3'],
+"     \ ['red',         'firebrick3'],
+"     \ ]
+" let g:rbpt_max = 16
+" "autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 " easy-motion
 let g:EasyMotion_leader_key = '<Leader>'
@@ -308,6 +313,7 @@ let g:SuperTabRetainCompletionType=2
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:yapf_style = "pep8"
 
 " Keybindings for plugin toggle
 " nnoremap <F2> :set invpaste paste?<CR>
@@ -328,6 +334,8 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+nnoremap <F4> :call yapf#YAPF()<cr>
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
