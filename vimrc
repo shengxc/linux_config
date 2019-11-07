@@ -55,7 +55,8 @@ Bundle 'bronson/vim-trailing-whitespace'
 "----------------
 " Code format
 "----------------
-Plugin 'google/yapf', { 'rtp': 'plugins/vim' }
+Bundle 'Chiel92/vim-autoformat'
+Bundle 'google/yapf', { 'rtp': 'plugins/vim' }
 
 "-------------
 " Other Utils
@@ -152,7 +153,6 @@ set cursorline cursorcolumn
 " search
 set incsearch
 "set highlight 	" conflict with highlight current line
-set ignorecase
 set smartcase
 
 " editor settings
@@ -313,7 +313,7 @@ let g:SuperTabRetainCompletionType=2
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-let g:yapf_style = "pep8"
+let g:formatter_yapf_style = 'pep8'
 
 " Keybindings for plugin toggle
 " nnoremap <F2> :set invpaste paste?<CR>
@@ -335,7 +335,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-nnoremap <F4> :call yapf#YAPF()<cr>
+nnoremap <F4> :YAPF<cr>
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
