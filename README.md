@@ -6,3 +6,5 @@
     
 * 安装插件：
     打开vim,执行`:BundleInstall`
+
+* 如果vim配色方案在tmux下显示有问题，可以在~/.bash_profile中添加`alias tmux='tmux -2'`
