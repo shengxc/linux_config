@@ -313,7 +313,9 @@ let g:SuperTabRetainCompletionType=2
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-let g:formatter_yapf_style = 'pep8'
+
+" yapf
+let g:formatter_yapf_style = 'google'
 
 " Keybindings for plugin toggle
 " nnoremap <F2> :set invpaste paste?<CR>
