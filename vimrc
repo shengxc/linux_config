@@ -386,3 +386,4 @@ set wrap
 colorscheme Tomorrow-Night
 
 let delimitMate_matchpairs = "(:),[:],{:}"
+set hlsearch
